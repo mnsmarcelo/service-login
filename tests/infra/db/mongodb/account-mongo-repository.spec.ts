@@ -30,4 +30,20 @@ describe('AccountMongoRepository', () => {
       expect(isValid).toBe(true);
     });
   });
+
+  describe('checkByEmail()', () => {
+    test('Should return true if email is valid', async () => {
+      const sut = makeSut();
+      const addAccountParams = mockAddAccountParams();
+      await accountColletion.insertOne(addAccountParams);
+      const exists = await sut.checkEmail(addAccountParams.email);
+      expect(exists).toBeTruthy();
+    });
+
+    test('Should return false if email not valid', async () => {
+      const sut = makeSut();
+      const exists = await sut.checkEmail(faker.internet.email());
+      expect(exists).toBeFalsy();
+    });
+  });
 });
