@@ -36,13 +36,13 @@ describe('AccountMongoRepository', () => {
       const sut = makeSut();
       const addAccountParams = mockAddAccountParams();
       await accountColletion.insertOne(addAccountParams);
-      const exists = await sut.checkEmail(addAccountParams.email);
+      const exists = await sut.checkByEmail(addAccountParams.email);
       expect(exists).toBeTruthy();
     });
 
     test('Should return false if email not valid', async () => {
       const sut = makeSut();
-      const exists = await sut.checkEmail(faker.internet.email());
+      const exists = await sut.checkByEmail(faker.internet.email());
       expect(exists).toBeFalsy();
     });
   });
