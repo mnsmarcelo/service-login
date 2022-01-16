@@ -36,7 +36,7 @@ workflows:
           pkg-manager: yarn     
   deploy:
     jobs:
-      - build     
+      - build: 
         filters:
           branches:
             only:
