@@ -1,4 +1,4 @@
-version: 2.1
+version: 2.1    
 
 orbs:
   node: circleci/node@4.7
@@ -9,6 +9,6 @@ workflows:
       - node/test:
           version: '16.10'
           pkg-manager: yarn       
-      - build:
+      build:
           docker:
             - image: circleci/node:12.16
