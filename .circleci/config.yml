@@ -9,6 +9,7 @@ jobs:
       - run: echo "build project"
 
 workflows:
+  version: 2
   testing:
     jobs: 
-        - build:
+      - build:
