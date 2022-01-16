@@ -11,5 +11,4 @@ jobs:
 workflows:
   testing:
     jobs: 
-      - build
-       
+      - build:
