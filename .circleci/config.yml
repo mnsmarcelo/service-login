@@ -3,13 +3,13 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
   
-jobs:
-  build:
-    steps:
-      - run: echo "build project"
-
 workflows:
   version: 2
   testing:
     jobs: 
       - build
+
+jobs:
+  build:
+    steps:
+      - run: echo "build project"        
