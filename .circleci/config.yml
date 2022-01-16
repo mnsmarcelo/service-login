@@ -34,9 +34,10 @@ workflows:
       - node/test:
           version: '16.10'
           pkg-manager: yarn
-      - build
+     
   deploy:
     jobs:
+      - build
       - deploy:
           filters:
             branches:
