@@ -1,4 +1,11 @@
-version: 2.1    
+version: 2.1
+  jobs:
+    build:
+      docker:
+          - image: circleci/node:12.16
+            steps:
+              - checkout
+              - run: echo "build project"
 
 orbs:
   node: circleci/node@4.7
@@ -9,6 +16,4 @@ workflows:
       - node/test:
           version: '16.10'
           pkg-manager: yarn       
-      build:
-          docker:
-            - image: circleci/node:12.16
+      - build
