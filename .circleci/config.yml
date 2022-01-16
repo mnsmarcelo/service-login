@@ -9,6 +9,6 @@ workflows:
       - node/test:
           version: '16.10'
           pkg-manager: yarn       
-      - node/build:
-          version: '16.10'
-          pkg-manager: yarn  
+      - build:
+          docker:
+            - image: circleci/node:12.16
