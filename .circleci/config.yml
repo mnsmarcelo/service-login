@@ -12,8 +12,6 @@ workflows:
   testing:
     jobs: 
       - node/test:
-          requires:
-            - build
           version: '16.10'
           pkg-manager: yarn
        
