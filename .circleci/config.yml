@@ -33,12 +33,17 @@ workflows:
     jobs:
       - node/test:
           version: '16.10'
-          pkg-manager: yarn
-     
+          pkg-manager: yarn     
   deploy:
     jobs:
-      - build
       - deploy:
+          filters:
+            branches:
+              only:
+                - main
+      - build
+          requires:
+            - deploy
           filters:
             branches:
               only:
