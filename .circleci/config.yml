@@ -18,7 +18,7 @@ jobs:
           command: ls
           name: ls    
       - persist_to_workspace:
-          root: ~/build
+          root: ~/project
           paths:
             - ./build
   deploy:
