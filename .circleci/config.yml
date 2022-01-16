@@ -8,4 +8,4 @@ workflows:
           pkg-manager: yarn       
       - node/build:
           version: '16.10'
-            pkg-manager: yarn  
+          pkg-manager: yarn  
