@@ -14,6 +14,9 @@ jobs:
       - run:
           command: yarn build
           name: build
+      - run:
+          command: ls
+          name: ls    
       - persist_to_workspace:
           root: ~/build
           paths:
