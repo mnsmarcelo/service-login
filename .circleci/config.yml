@@ -36,14 +36,14 @@ workflows:
           pkg-manager: yarn     
   deploy:
     jobs:
-      - deploy:
+      - build     
           filters:
             branches:
               only:
                 - main
-      - build
+      - deploy:
           requires:
-            - deploy
+            - build
           filters:
             branches:
               only:
