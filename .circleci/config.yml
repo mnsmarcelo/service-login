@@ -12,4 +12,4 @@ workflows:
   version: 2
   testing:
     jobs: 
-      - build:
+      - build
