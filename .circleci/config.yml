@@ -3,15 +3,17 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
   
-workflows:
-  version: 2
-  build:
-    jobs: 
-      - build
-
 jobs:
   build:
     docker:
       - image: cimg/node:17.2.0
     steps:
-      - run: echo "build project"        
+      - run: echo "build project"
+
+workflows:
+  testing:
+    jobs:
+      - node/test:
+          version: '16.10'
+          pkg-manager: yarn
+      - build
