@@ -31,7 +31,7 @@ jobs:
           at: ~/project 
       - aws-ecr/build-and-push-image:
           repo: "${AWS_RESOURCE_NAME_PREFIX}"
-          tag: "${CIRCLE_SHA1}
+          tag: "${CIRCLE_SHA1}"
           
 workflows:
   testing:
