@@ -51,5 +51,7 @@ workflows:
               only:
                 - main
       - aws-ecr/build-and-push-image:
+          requires:
+            - build
           repo: "${AWS_RESOURCE_NAME_PREFIX}"
           tag: "${CIRCLE_SHA1}"
