@@ -29,7 +29,10 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/project 
-
+      - aws-ecr/build-and-push-image:
+          repo: "${AWS_RESOURCE_NAME_PREFIX}"
+          tag: "${CIRCLE_SHA1}
+          
 workflows:
   testing:
     jobs:
@@ -38,7 +41,7 @@ workflows:
           pkg-manager: yarn     
   deploy:
     jobs:
-      - build: 
+      - build:
         filters:
           branches:
             only:
@@ -50,8 +53,3 @@ workflows:
             branches:
               only:
                 - main
-      - aws-ecr/build-and-push-image:
-          requires:
-            - build
-          repo: "${AWS_RESOURCE_NAME_PREFIX}"
-          tag: "${CIRCLE_SHA1}"
