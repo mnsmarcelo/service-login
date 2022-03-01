@@ -3,7 +3,7 @@ FROM node:14-alpine
 WORKDIR /app
 
 # Bundle app source
-COPY /dist/ ./
+COPY /build/ ./
 
 COPY package.json ./
 RUN npm install --production
