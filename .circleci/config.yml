@@ -29,6 +29,7 @@ jobs:
     docker:
       - image: cimg/node:17.2.0
     steps:
+      - checkout
       - attach_workspace:
           at: ~/project
       - run:
