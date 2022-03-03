@@ -21,16 +21,18 @@ jobs:
           name: ls  
       - store_test_results:
           path: ./build  
-#      - persist_to_workspace:
-#          root: ~/project
-#          paths:
-#            - ./build
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - ./build
   deploy:
     docker:
       - image: cimg/node:17.2.0
     steps:
       - attach_workspace:
           at: ~/project 
+      - run: 
+          commad: docker build -t company/app:$CIRCLE_BRANCH .    
 
 workflows:
   testing:
@@ -52,8 +54,8 @@ workflows:
             branches:
               only:
                 - main
-      - aws-ecr/build-and-push-image:
-          requires:
-            - build
-          repo: "${AWS_RESOURCE_NAME_PREFIX}"
-          tag: "${CIRCLE_SHA1}"
+#      - aws-ecr/build-and-push-image:
+#          requires:
+#            - build
+#          repo: "${AWS_RESOURCE_NAME_PREFIX}"
+#          tag: "${CIRCLE_SHA1}"
