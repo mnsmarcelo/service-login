@@ -32,6 +32,7 @@ jobs:
       - attach_workspace:
           at: ~/project 
       - run: 
+          name: docker_build
           commad: docker build -t
 
 workflows:
