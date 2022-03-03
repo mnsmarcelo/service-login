@@ -32,7 +32,7 @@ jobs:
       - attach_workspace:
           at: ~/project 
       - run: 
-          commad: docker build -t company/app:$CIRCLE_BRANCH .    
+          commad: docker build -t
 
 workflows:
   testing:
