@@ -27,7 +27,7 @@ jobs:
             - ./build
   deploy:
     docker:
-      - image: cimg/node:17.2.0
+      - image: docker:17.05.0-ce-git
     steps:
       - checkout
       - attach_workspace:
