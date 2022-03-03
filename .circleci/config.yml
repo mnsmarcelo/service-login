@@ -30,7 +30,10 @@ jobs:
       - image: cimg/node:17.2.0
     steps:
       - attach_workspace:
-          at: ~/project 
+          at: ~/project
+      - run:
+          command: ls
+          name: ls
       - run: 
           name: docker_build
           command: docker build -t company/app:$CIRCLE_SHA1 .
