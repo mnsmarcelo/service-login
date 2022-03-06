@@ -64,4 +64,5 @@ workflows:
             - build
           repo: "${AWS_RESOURCE_NAME_PREFIX}"
           account-url: AWS_ECR_ACCOUNT_URL
+          tag: 'latest,$CIRCLE_SHA1'
           attach-workspace: true
