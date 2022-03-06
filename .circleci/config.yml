@@ -62,7 +62,7 @@ workflows:
       - aws-ecr/build-and-push-image:
           requires:
             - build
-          repo: AWS_RESOURCE_NAME_PREFIX
+          repo: dev-service-login
           account-url: AWS_ECR_ACCOUNT_URL
           tag: 'latest,$CIRCLE_SHA1'
           attach-workspace: true
